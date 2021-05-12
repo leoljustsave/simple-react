@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from 'react';
 
 import { ListManager } from '@/data/list';
-const listManager = new ListManager();
+const listManager = new ListManager(); // fake interface function
 
+// item component
 const Item = (props) => {
   const { content } = props;
 
   return <p className="item">{content}</p>;
 };
 
-const List = (props) => {
-  const { list } = props;
-
-  return list?.map((item, index) => <Item key={index} content={item} />);
-};
-
-export const Normal = () => {
+// list component
+const List = () => {
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -35,7 +31,13 @@ export const Normal = () => {
     setLoading(false);
   }, []);
 
-  return (
-    <>{loading ? 'loading' : error ? 'error occur' : <List list={list} />}</>
-  );
+  return loading
+    ? 'loading'
+    : error
+    ? 'error occur'
+    : list?.map((item, index) => <Item key={index} content={item} />);
+};
+
+export const Normal = () => {
+  return <List />;
 };

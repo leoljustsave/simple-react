@@ -5,7 +5,7 @@ export class ListManager {
     new Promise((resolve) => {
       setTimeout(() => {
         resolve(this.lists);
-      }, 0);
+      }, 1000);
     });
 
   removeList = (target) =>
