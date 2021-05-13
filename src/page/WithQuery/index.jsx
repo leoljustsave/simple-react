@@ -14,13 +14,13 @@ const Item = (props) => {
 const queryClient = new QueryClient({});
 
 const List = () => {
-  const { data, isLoading, isError } = useQuery('lists', listManager.getList);
+  const { data, status } = useQuery('lists', listManager.getList);
 
   return (
     <>
-      {isLoading
+      {status === 'loading'
         ? 'loading'
-        : isError
+        : status === 'error'
         ? 'error occur'
         : data?.map((item, index) => <Item key={index} content={item} />)}
     </>
