@@ -5,7 +5,7 @@ import { HashRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import { routes } from '@/routes';
 
-import './reset.scss';
+import '@/asset/scss/reset.scss';
 
 render(
   <StrictMode>
