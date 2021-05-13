@@ -1,15 +1,9 @@
-import { Normal } from '@/page/Normal';
-import { WithQuery } from '@/page/WithQuery';
+import { Index } from '@/page/Index';
 
 export const routes = [
   {
-    path: ['/normal'],
+    path: ['/'],
     exact: true,
-    component: Normal,
-  },
-  {
-    path: ['/withQuery'],
-    exact: true,
-    component: WithQuery,
+    component: Index,
   },
 ];
