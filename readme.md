@@ -4,22 +4,20 @@
 
 ## 集成内容
 
-### React
+### Base
+- react
+- typescirpt
+- eslint
+- prettier
+- husky
+  - lint-staged
+  - commitlint
 
+### React
 - react-router
 
 ### Style
-
 - sass
 
 ### Build
-
 - vite
-
-### Husky
-
-- prettier
-- eslint
-- lint-staged
-- commitlint
-
