@@ -2,7 +2,7 @@
   "name": "simple-react",
   "version": "1.2",
   "scripts": {
-    "dev": "vite --host",
+    "start": "vite --host",
     "build": "vite build",
     "serve": "vite preview",
     "prepare": "husky install ./config/husky"
