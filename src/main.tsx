@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react';
+import { StrictMode } from 'react';
 import { render } from 'react-dom';
 
 import { HashRouter } from 'react-router-dom';
@@ -11,5 +11,5 @@ render(
   <StrictMode>
     <HashRouter>{renderRoutes(routes)}</HashRouter>
   </StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
