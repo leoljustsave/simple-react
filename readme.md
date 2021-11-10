@@ -9,6 +9,8 @@
 - typescirpt
 - eslint
 - prettier
+- babel
+  - @babel/preset-typescript
 - husky
   - lint-staged
   - commitlint
@@ -21,3 +23,4 @@
 
 ### Build
 - vite
+  - @vitejs/plugin-react
