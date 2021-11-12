@@ -17,6 +17,8 @@
 
 ### React
 - react-router
+  - react-router-dom
+  - react-router-config
 
 ### Style
 - sass
