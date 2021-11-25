@@ -4,7 +4,7 @@
 npx --no-install commitlint --config ./config/commitlint.config.js --edit "$1"
 
 # transform commit type to emoji
-commit_msg=`cat .git/COMMIT_EDITMSG`;
+commit_msg=$(cat .git/COMMIT_EDITMSG)
 
 commit_types=("build" "chore" "ci" "docs" "feat" "fix" "perf" "refactor" "revert" "style" "test")
 emoji_types=(":building_construction:" ":wrench:" ":construction_worker:" ":memo:" ":sparkles:" ":bug:" ":zap:" ":recycle:" ":rewind:" ":lipstick:" ":white_check_mark:")
@@ -26,4 +26,4 @@ match_emoji=${emoji_types[$match_index]}
 
 res_msg=$(echo $commit_msg | sed "s/^${commit_types[$match_index]}/"$match_emoji"/")
 
-echo $res_msg > .git/COMMIT_EDITMSG;
+echo $res_msg >.git/COMMIT_EDITMSG
