@@ -3,25 +3,27 @@
 
 npx --no-install commitlint --config ./config/commitlint.config.js --edit "$1"
 
-# commit_types=("build" "chore" "ci" "docs" "feat" "fix" "perf" "refactor" "revert" "style" "test")
-# emoji_types=(":building_construction:" ":wrench:" ":construction_worker:" ":memo:" ":sparkles:" ":bug:" ":zap:" ":recycle:" ":rewind:" ":lipstick:" ":white_check_mark:")
+# transform commit type to emoji
+commit_msg=`cat .git/COMMIT_EDITMSG`;
 
-# match_index=0
-# index=0
+commit_types=("build" "chore" "ci" "docs" "feat" "fix" "perf" "refactor" "revert" "style" "test")
+emoji_types=(":building_construction:" ":wrench:" ":construction_worker:" ":memo:" ":sparkles:" ":bug:" ":zap:" ":recycle:" ":rewind:" ":lipstick:" ":white_check_mark:")
 
-# for item in ${commit_types[@]}; do
-#   type_regex="^${item}"
+match_index=0
+index=0
 
-#   if [[ $1 =~ $type_regex ]]; then
-#     let match_index=$index;
-#   fi
+for item in ${commit_types[@]}; do
+  type_regex="^${item}"
 
-#   let index=${index}+1
-# done
+  if [[ $commit_msg =~ $type_regex ]]; then
+    let match_index=$index
+  fi
 
-# match_emoji=${emoji_types[$match_index]}
+  let index=${index}+1
+done
 
-# res_msg=$(echo $1 | sed "s/^${commit_types[$match_index]}/"$match_emoji"/")
+match_emoji=${emoji_types[$match_index]}
 
-# # 稍显拙劣 不知如何直接修改 msg
-# git commit --amend -m "fe." --no-verify
+res_msg=$(echo $commit_msg | sed "s/^${commit_types[$match_index]}/"$match_emoji"/")
+
+echo $res_msg > .git/COMMIT_EDITMSG;
