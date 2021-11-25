@@ -26,3 +26,9 @@
 ### Build
 - vite
   - @vitejs/plugin-react
+
+### Git hooks
+- commit-msg
+  - 通过 shell 对 commit-msg 的 type 进行修改，实现 [git-emoji](https://gitmoji.dev/) 效果
+- pre-commit
+  - 集成 lint-staged
