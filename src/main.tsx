@@ -1,16 +1,18 @@
 import { StrictMode } from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import { HashRouter } from 'react-router-dom';
 import { Routes } from '@/routes';
 
 import '@/asset/scss/reset.scss';
 
-render(
+const rootElement = document.getElementById('root');
+const root = rootElement && createRoot(rootElement);
+
+root?.render(
   <StrictMode>
     <HashRouter>
       <Routes />
     </HashRouter>
   </StrictMode>,
-  document.getElementById('root'),
 );
