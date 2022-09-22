@@ -1,9 +1,9 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx --no-install commitlint --config ./config/commitlint.config.js --edit "$1"
+npx commitlint --config ./config/commitlint.config.js --edit "$1"
 
-# transform commit type to emoji
+# START EMOJI
 commit_msg=$(cat .git/COMMIT_EDITMSG)
 
 commit_types=("build" "chore" "ci" "docs" "feat" "fix" "perf" "refactor" "revert" "style" "test")
@@ -24,6 +24,7 @@ done
 
 match_emoji=${emoji_types[$match_index]}
 
-res_msg=$(echo $commit_msg | sed "s/^${commit_types[$match_index]}/"$match_emoji"/")
+res_msg=$(echo $commit_msg | sed "s/^${commit_types[$match_index]}\:\?/"$match_emoji"/")
 
 echo $res_msg >.git/COMMIT_EDITMSG
+# END EMOJI
